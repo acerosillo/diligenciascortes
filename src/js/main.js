@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 let isMobile;
 function preCheck() {
   isMobile = window.innerWidth < 1024;
-  isModernBrowser = "visibilityState" in document;
+  //isModernBrowser = "visibilityState" in document;
   init();
   // window.addEventListener("resize", init);
 }
