@@ -1,0 +1,83 @@
+@import "global/custom.scss";
+@import "global/navigation.scss";
+@import "global/mixins.scss";
+
+@import "global/settings.scss";
+@import "global/variables.scss";
+
+@import "global/global.scss";
+@import "global/animations.scss";
+//@import "global/normalize.scss";
+@import "global/type-silent-classes.scss";
+@import "global/typography.scss";
+@import "global/grid.scss";
+
+@import "global/buttons.scss";
+@import "global/icons.scss";
+
+//modules
+@import "modules/header.scss";
+@import "modules/footer.scss";
+
+//partials
+@import "partials/links-cta.scss";
+@import "partials/accordion.scss";
+@import "partials/modal.scss";
+@import "partials/tabs.scss";
+@import "partials/dropdown.scss";
+
+//pages
+@import "views/homepage.scss";
+@import "views/page.scss";
+@import "views/news.scss";
+@import "views/contact.scss";
+@import "views/search.scss";
+
+//third parties css
+@import "global/swiper.scss";
+
+html {
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  -webkit-user-drag: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  min-height: 100vh;
+  font-family: gotham-light;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  color: $black !important;
+}
+
+p {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.75rem;
+}
+
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+a:-webkit-any-link:focus-visible {
+  outline-offset: 1px;
+}
+
+#primary_content {
+  margin-top: 110px;
+  overflow: hidden;
+}

@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Mixins (Global).
+   ========================================================================== */
+
+// Calculate and convert to REM value...
+@mixin type-setting($level, $extra-size: 0) {
+  // If needing to bump font level up by an amount...
+  @if ($extra-size > 0) {
+    font-size: (type-scale($level) + $extra-size) / $base-font-size + rem;
+  } @else {
+    font-size: type-scale($level) / $base-font-size + rem;
+  }
+}
+
+@mixin links(
+  $color: $link-primary,
+  $color-hover: $link-primary,
+  $text-decoration: none,
+  $text-decoration-hover: underline
+) {
+  color: $color;
+  text-decoration: $text-decoration;
+  // Link states
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible {
+    color: $color-hover;
+    text-decoration: $text-decoration-hover;
+  }
+}
+
+// Silent class generator
+// ====================================================
+// * Generates a selector/s and/or solid class (for use in markup) and a silent class (for use with
+// * `@extend`) in one go.
+
+@mixin silent-class($class-name, $selector: false) {
+  // Checks first to see if a standard selector/s is being used
+  @if $selector {
+    #{$selector},
+    .#{$class-name},
+    %#{$class-name} {
+      @content;
+    }
+  } @else {
+    .#{$class-name},
+    %#{$class-name} {
+      @content;
+    }
+  }
+}
+
+// * Converts HEX value to RGB
+@mixin font-opacity($color, $opacity: 1) {
+  color: $color; // Fallback
+  color: rgba($color, $opacity);
+}
+
+// Desktop fluid font
+// This mixin is to calculate the vw font size.
+// It works by taking the desktop design font size and dividing it by the width of the desktop designs.
+// It is set to kick in and starting using vw font sizes from the desktop design width.
+// ====================================================
+@mixin desktop-fluid-font($font-size) {
+  $calculated-font-size: calc($font-size * 100 / $desktop-design-width);
+
+  @include breakpoint($desktop-design-width) {
+    font-size: $calculated-font-size + vw;
+  }
+}
+
+// Fluid font
+// This mixin is to calculate the vw font size.
+// It works by taking the small font size and dividing it by the width of the small designs.
+// It then gets the large font size and divides it by the width of the large (desktop) designs.
+// It swtiches to the large font size from the breakpoint in variables file which is getting a breakpoint from foundation.
+// Implementation example = @include fluid-fonts(82, 100);
+
+// ====================================================
+@mixin fluid-fonts($font-size-small, $font-size-large) {
+  $small-calculated-font-size: $font-size-small * 100 / $small-design-width;
+  $large-calculated-font-size: $font-size-large * 100 / $large-design-width;
+
+  font-size: $small-calculated-font-size + vw;
+
+  @include breakpoint($font-breakpoint) {
+    font-size: $large-calculated-font-size + vw;
+  }
+}
+
+// Adding angle to top or bottom of div
+@mixin angle($pseudo, $flip: false, $angle: 1.5deg) {
+  // Possible values for $pseudo are: before, after, both
+  @if $pseudo == "before" or $pseudo == "after" {
+    position: relative;
+    z-index: 1;
+    $selector: "&:#{$pseudo}";
+
+    #{$selector} {
+      content: "";
+      background: inherit;
+      height: 50%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+      -webkit-backface-visibility: hidden; // for Chrome Windows
+    }
+
+    @if $pseudo == "before" {
+      #{$selector} {
+        top: 0;
+
+        @if $flip {
+          transform: skewY($angle * -1);
+          transform-origin: 0 0;
+        } @else {
+          transform: skewY($angle);
+          transform-origin: 100% 0;
+        }
+      }
+    }
+
+    @if $pseudo == "after" {
+      #{$selector} {
+        bottom: 0;
+
+        @if $flip {
+          transform: skewY($angle);
+          transform-origin: 0 100%;
+        } @else {
+          transform: skewY($angle * -1);
+          transform-origin: 100%;
+        }
+      }
+    }
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // // If the key doesn't exist in the map
+  // @else {
+  //   @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+  //       + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  // }
+}

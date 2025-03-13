@@ -1,0 +1,287 @@
+.accordion-wrapper {
+  margin: 1rem 0 3rem;
+  .standard-block-component {
+    > div {
+      position: relative;
+    }
+  }
+}
+
+.accordion--item {
+  border-bottom: solid 1px #1d3d51;
+  &.active {
+    background-color: #ecfaea;
+    .toggle-icon {
+      background: url('data:image/svg+xml,<svg width="24" height="2" viewBox="0 0 24 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 2H0L0 0L24 0V2Z" fill="%231D3D51"/></svg>');
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .accordion--content {
+      display: block;
+      height: auto;
+      max-height: 100%;
+      transition: all 0.3s ease;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+      width: 100% !important;
+      opacity: 1;
+    }
+  }
+
+  &:first-child {
+    border-top: solid 1px #1d3d51;
+  }
+
+  &.governence {
+    &.active {
+      background-color: transparent;
+    }
+
+    .board-member {
+      display: block;
+      margin-bottom: 2rem;
+
+      @include breakpoint(medium) {
+        display: flex;
+        margin-bottom: 2rem;
+      }
+
+      &--name {
+        max-width: 200px;
+        min-width: 200px;
+        width: 100%;
+        margin-right: 1rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.accordion--header {
+  cursor: pointer;
+  position: relative;
+
+  .toggle-icon {
+    text-indent: -9999px;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    right: 20px;
+    margin-top: -22px;
+    display: block;
+    position: absolute;
+    background: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 11V0L11 0V11H0L0 13H11V24H13V13H24V11H13Z" fill="%231D3D51"/></svg>');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .standard-block-component {
+    margin-bottom: 0;
+    padding-top: 1rem;
+    > div {
+      p {
+        width: 90%;
+      }
+
+      h4 {
+        padding-right: 40px;
+      }
+    }
+  }
+}
+
+.accordion--content {
+  display: none;
+  transition: all 0.8s ease;
+  max-height: 0;
+  opacity: 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.accordion {
+  position: relative;
+  &--info {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0 1rem 1rem 0;
+      color: #1d3d51;
+      .into-title {
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.accordion-wrapper {
+  &.grants-style {
+    .accordion--item {
+      border-bottom: solid 1px #1d3d51;
+      &.active {
+        background-color: $white;
+        .toggle-icon {
+          background: url('data:image/svg+xml,<svg width="24" height="2" viewBox="0 0 24 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 2H0L0 0L24 0V2Z" fill="%231D3D51"/></svg>');
+          background-position: 50%;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+
+        .accordion--content {
+          display: block;
+          height: auto;
+          max-height: 100%;
+          transition: all 0.3s ease;
+          transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+          width: 100% !important;
+          opacity: 1;
+          p,
+          ul,
+          input,
+          li {
+            color: $text-blue;
+          }
+        }
+
+        .accordion--header {
+          h4 {
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 31px;
+            color: #1a78b4;
+          }
+        }
+      }
+
+      &:first-child {
+        border-top: solid 1px #1d3d51;
+      }
+    }
+
+    .accordion--header {
+      h4 {
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 31px;
+      }
+      cursor: pointer;
+      position: relative;
+
+      .toggle-icon {
+        text-indent: -9999px;
+        width: 16px;
+        height: 16px;
+        top: 50%;
+        right: 20px;
+        margin-top: -15px;
+        display: block;
+        position: absolute;
+        background: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 11V0L11 0V11H0L0 13H11V24H13V13H24V11H13Z" fill="%231D3D51"/></svg>');
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .standard-block-component {
+        margin-bottom: 0;
+        padding-top: 1rem;
+        > div {
+          p {
+            width: 90%;
+            @include breakpoint(medium) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .accordion--content {
+      display: none;
+      transition: all 0.8s ease;
+      max-height: 0;
+      opacity: 0;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}
+
+/* Customize the label (the container) */
+.check-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: solid 1px $text-blue;
+}
+
+/* On mouse-over, add a grey background color */
+.check-container:hover input ~ .checkmark {
+  background-color: #ecfaea;
+}
+
+/* When the checkbox is checked, add a blue background */
+.check-container input:checked ~ .checkmark {
+  background-color: $text-blue;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.check-container .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

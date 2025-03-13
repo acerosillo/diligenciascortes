@@ -1,0 +1,177 @@
+.tabs-module {
+  overflow: hidden;
+  margin-right: -1.5625rem;
+}
+
+.tab-controls-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+.tab-controls-wrapper .tab-controls {
+  list-style-type: none;
+  padding: 0;
+  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  width: 100%;
+  .tab-header {
+    margin: 0;
+    padding: 1rem;
+    width: 50%;
+    display: block;
+    position: relative;
+
+    background-color: #1a78b4;
+    border-left: transparent;
+    border-bottom: transparent;
+    color: $white;
+    z-index: 3;
+
+    @include breakpoint(medium) {
+      width: 100%;
+      padding: 3rem 2rem;
+      flex-grow: 1;
+      flex-basis: 0;
+      border-left: solid 1px #1d3d51;
+      border-bottom: solid 1px #1d3d51;
+    }
+
+    .category-icon {
+      display: block;
+      margin: 0 0 1rem 0;
+      z-index: 0;
+      color: $white;
+      width: 30px;
+      height: 30px;
+
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+
+    &.active {
+      background-color: $white;
+      color: $text-blue;
+      border-top: transparent;
+      border-bottom: transparent;
+
+      @include breakpoint(medium) {
+        border-top: solid 1px #1d3d51;
+
+        .category-icon {
+          //background: #1d3d51;
+          color: #1d3d51;
+        }
+      }
+    }
+
+    &:first-child {
+      border-left: solid 1px transparent;
+    }
+  }
+}
+
+.tab-controls-wrapper .tab-controls li {
+  cursor: pointer;
+}
+
+.tab-controls-wrapper .tab-controls li.active {
+}
+.tab-controls-wrapper .tab-controls li:hover {
+}
+
+.tab-item {
+  display: none;
+}
+.tab-item.open {
+  display: block;
+}
+
+.animated-cricle {
+  display: grid;
+  height: 540px;
+  place-items: center;
+  overflow: hidden;
+  --circleDiameter: 150px;
+  --planets: calc(var(--circleDiameter));
+
+  @include breakpoint(medium) {
+    --circleDiameter: 250px;
+  }
+}
+
+.hero-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: var(--circleDiameter);
+  max-height: var(--circleDiameter);
+}
+
+.hero-rotate {
+  position: relative;
+  top: -7px;
+  left: -7px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  animation: rotate 30s linear infinite;
+}
+
+.planet {
+  position: absolute;
+  width: var(--planets);
+  aspect-ratio: 1;
+  border-radius: 100%;
+  animation: maintain 30s linear infinite;
+  border: 1px solid #0767a4;
+}
+.planet:nth-child(1) {
+  top: calc(-1 * var(--planets) / 2);
+  left: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+  border: 1px solid #58a8c7;
+}
+
+.planet:nth-child(2) {
+  top: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+  right: calc(-1 * var(--planets) / 2);
+  border: 1px solid #0767a4;
+}
+
+.planet:nth-child(3) {
+  top: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+  left: calc(-1 * var(--planets) / 2);
+  border: 1px solid #0767a4;
+}
+
+.planet:nth-child(4) {
+  left: calc(var(--circleDiameter) / 2 - var(--planets) / 2 - 5px);
+  bottom: calc(-1 * var(--planets) / 2);
+  border: 1px solid #58a8c7;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes maintain {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}

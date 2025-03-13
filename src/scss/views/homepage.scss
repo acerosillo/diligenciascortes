@@ -1,0 +1,259 @@
+.gallery-carousel {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  position: absolute;
+  left: 0;
+
+  li {
+    margin: 0 1rem;
+    width: 100%;
+    > div {
+      display: block;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      width: 100%;
+      img {
+        display: block;
+        object-fit: cover;
+      }
+
+      &.half {
+        display: block;
+        max-height: 290px;
+        height: 100%;
+      }
+      &.full {
+        display: block;
+        // max-height: 480px;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.gallery-carousel-wrapper {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin-top: 3rem;
+  @include breakpoint(medium) {
+    //height: 100vh;
+  }
+}
+
+.right {
+  width: 50%;
+  white-space: nowrap;
+  position: absolute;
+  left: -200vh;
+}
+
+.homepage-stats {
+  margin: 3rem 0;
+  padding: 0;
+  list-style: none;
+  > li {
+    margin: 0 0 2rem 0;
+    .stat-value {
+      font-family: "gotham-light";
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 2.5rem;
+      letter-spacing: -0.2px;
+      color: #010521;
+
+      @include breakpoint(medium) {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+    }
+  }
+}
+
+.meet-the-team {
+  overflow-x: hidden;
+  background: #010521;
+
+  .team-div .team-name a {
+    color: #fff;
+  }
+
+  h2 {
+    color: white;
+  }
+  .epiris-team {
+    margin-top: 3rem;
+  }
+
+  .team-counter {
+    color: white;
+  }
+
+  &.white-bg {
+    background: transparent;
+
+    h2 {
+      color: #010521;
+    }
+    .epiris-team {
+      margin-top: 0rem;
+    }
+
+    .team-counter,
+    .team-name a {
+      color: #010521;
+    }
+  }
+}
+
+.news-listing {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: #010521;
+  color: white;
+  overflow: hidden;
+  .panel-content {
+    h2 {
+      color: white;
+    }
+  }
+
+  &.white {
+    background: transparent;
+    color: #010521;
+    padding-top: 0;
+    .panel-content {
+      h2 {
+        color: #010521;
+      }
+    }
+
+    .article-listing--item {
+      a {
+        color: #010521;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.small-media-block {
+  position: relative;
+  &:after {
+    content: "";
+    background: linear-gradient(
+      200deg,
+      #def6ff 0%,
+      #bbe4ff 46.7%,
+      #92bcff 100%
+    );
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: 90%;
+    z-index: -1;
+    bottom: 0;
+
+    @include breakpoint(medium) {
+      height: 50%;
+    }
+  }
+}
+
+.overlapped-media-block {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  .panel-content {
+    padding: 2rem;
+    background-color: #010521;
+    margin-left: -2px;
+    margin-right: -2px;
+    z-index: 2;
+    position: relative;
+
+    @include breakpoint(large) {
+      margin-top: 200px;
+      padding: 120px;
+    }
+    h3,
+    p {
+      color: #fff;
+    }
+  }
+  picture {
+    position: relative;
+    overflow: hidden;
+    max-width: 780px;
+    img {
+      width: 100%;
+      transition: all 0.5s ease;
+    }
+    a {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: block;
+        z-index: 1;
+      }
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+    @include breakpoint(large) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &.flipped {
+    picture {
+      position: relative;
+      img {
+        width: 100%;
+      }
+      @include breakpoint(large) {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.swiper-slide {
+  width: auto;
+  margin-right: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.grid-item {
+  width: 100%;
+  margin-bottom: 10px;
+}

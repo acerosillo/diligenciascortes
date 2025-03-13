@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "gotham-light";
+  src: url("../ui/fonts/Gotham/Gotham-Light.eot");
+  src: url("../ui/fonts/Gotham/Gotham-Light.woff") format("woff"),
+    url("../ui/fonts/Gotham/Gotham-Light.woff2") format("woff2"),
+    url("../ui/fonts/Gotham/Gotham-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "gotham-medium";
+  src: url("../ui/fonts/Gotham/Gotham-Medium.eot");
+  src: url("../ui/fonts/Gotham/Gotham-Medium.woff") format("woff"),
+    url("../ui/fonts/Gotham/Gotham-Medium.woff2") format("woff2"),
+    url("../ui/fonts/Gotham/Gotham-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "gotham-bold";
+  src: url("../ui/fonts/Gotham/Gotham-Bold-Regular.eot");
+  src: url("../ui/fonts/Gotham/Gotham-Bold-Regular.woff") format("woff"),
+    url("../ui/fonts/Gotham/Gotham-Bold-Regular.woff2") format("woff2"),
+    url("../ui/fonts/Gotham/Gotham-Bold-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* Typography styles
+============================================= */
+
+body {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-light;
+  color: $text-blue;
+}
+
+p,
+li {
+  margin: 0 0 1rem 0;
+  @include breakpoint(medium) {
+    margin: 0 0 1rem 0;
+  }
+}
+
+sup {
+  font-size: 60%;
+}
+
+//H1 styles
+h1,
+.h1-style {
+  @extend %h1-style;
+}
+
+// // H2 styles
+h2,
+.h2-style {
+  @extend %h2-style;
+}
+
+// // H3 styles
+h3,
+.h3-style {
+  @extend %h3-style;
+}
+
+// // H4 styles
+h4,
+.h4-style {
+  @extend %h4-style;
+}
+
+// // H5 styles
+h5,
+.h5-style {
+  @extend %h5-style;
+}
+
+// p styles
+p,
+.p-style {
+  @extend %p-style;
+}
+
+#primary_content {
+  //li styles
+  ul li {
+    @extend %p-style;
+    margin-bottom: 20px;
+  }
+}
+
+p {
+  a {
+    color: #010521;
+    text-decoration: none;
+    border-bottom: 1px solid #010521;
+
+    &:hover {
+      //font-style: italic;
+    }
+  }
+}
+
+.alt-text-colour {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h5,
+  p,
+  a,
+  figcaption {
+    color: $black !important;
+  }
+}
+
+// text small
+.text-small {
+  @extend %text-small;
+  margin: 1rem 0;
+}
+
+// text medium
+.text-medium {
+  @extend %text-medium;
+}
+
+// text large
+.text-large {
+  @extend %text-large;
+}
+
+// text xlarge
+.text-xlarge {
+  @extend %text-xlarge;
+}
+
+// number small
+.number-small {
+  @extend %number-small;
+}
+
+// number large
+.number-large {
+  @extend %number-large;
+}

@@ -1,0 +1,25 @@
+.off-screen {
+  left: -100vw;
+  position: absolute;
+}
+
+.skip-link {
+  background: #e9e6e4;
+  color: #0a0a0a;
+  left: 0;
+  padding: 0.75em;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  transform: translateY(-10em);
+  border-radius: 0;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  display: block;
+}
+
+.skip-link:focus {
+  display: block;
+  opacity: 1;
+  transform: translateY(0em);
+  z-index: 9999;
+}

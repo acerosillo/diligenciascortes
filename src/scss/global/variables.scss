@@ -1,0 +1,104 @@
+// // Theme / brand colours
+// // ======================
+
+$orange: #fc6d2a;
+$navy: #0d2c46;
+$light-blue: #0064a4;
+$white: #ffffff;
+
+$steel-pink: #be4dc8;
+$marjorelle-blue: #7646ff;
+$cerise: #f92e6a;
+
+$primary-light-blue: #1a78b4;
+$primary-dark-blue: #156090;
+
+$text-blue: #010521;
+
+// // Core 'common' colours
+// // ======================
+$white: #fff;
+$black: #010521;
+$grey: #666666; //grey
+$grey-dark: #3d3d3d; //dark grey
+$grey-mid: #b5aca5; //mid grey
+$grey-light: #e9e6e4; //light grey
+
+// // Typography
+// // ======================
+
+// // Font families...
+$font-family-primary-bold: gotham-bold;
+$font-family-primary: gotham-medium;
+$font-family-secondary: gotham-light;
+$font-family-light: gotham-light;
+
+// // Font weighting...
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// // Base font size
+$base-font-size: 16px;
+
+// // spacing
+// // ======================
+$xsmall-spacing: 20px;
+$small-spacing: 30px;
+$medium-spacing: 60px;
+$large-spacing: 100px;
+$xlarge-spacing: 140px;
+
+// $big-bottom-gutter: 215px;
+
+// $navsideslide-buffer: 300px;
+
+// // transition speeds
+// // ======================
+$slow-speed: 1s;
+$medium-speed: 0.4s;
+$fast-speed: 0.25s;
+
+// // design width for fluid fonts
+// // ======================
+$desktop-design-width: 1600;
+
+//themed colors
+$themes: (
+  "mint": (
+    "secondary-mint-05": #96df90,
+    "secondary-mint-04": #b4e8b0,
+    "secondary-mint-03": #cff3cc,
+    "secondary-mint-02": #d8f5d6,
+    "secondary-mint-01": #ecfaea,
+  ),
+  "yellow": (
+    "secondary-yellow-05": #f3b205,
+    "secondary-yellow-04": #ffbd0f,
+    "secondary-yellow-03": #ffcb43,
+    "secondary-yellow-02": #ffd975,
+    "secondary-yellow-01": #ffe7a8,
+  ),
+  "teal": (
+    "secondary-teal-05": #00423e,
+    "secondary-teal-04": #005c56,
+    "secondary-teal-03": #007770,
+    "secondary-teal-02": #00958c,
+    "secondary-teal-01": #08bbb1,
+  ),
+);
+
+// create theme classes off theme map
+@each $name, $colors in $themes {
+  .theme-#{$name} {
+    @each $variant, $color in $colors {
+      --#{$variant}: #{$color};
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}

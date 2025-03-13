@@ -1,0 +1,29 @@
+.add-active {
+  &.move-right {
+    .add-active-child {
+      display: block;
+      transform: translateX(20px);
+      transition: transform 0.7s;
+    }
+
+    &.active {
+      .add-active-child {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &.move-left {
+    .add-active-child {
+      display: block;
+      transform: translateX(-20px);
+      transition: transform 0.7s;
+    }
+
+    &.active {
+      .add-active-child {
+        transform: translateX(0);
+      }
+    }
+  }
+}

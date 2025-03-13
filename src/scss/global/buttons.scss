@@ -1,0 +1,113 @@
+//button colors
+.cta {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+  color: #034184;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  border-radius: 40px;
+  border: solid 1px #034184;
+  padding: 14px 25px 14px 25px;
+  text-decoration: none;
+  &:hover {
+    border: solid 1px #034184;
+    background-color: #034184;
+    color: #fff;
+  }
+}
+
+.cta-dark {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  border-radius: 40px;
+  border: solid 1px #fff;
+  padding: 14px 25px 14px 25px;
+  text-decoration: none;
+  &:hover {
+    border: solid 1px #034184;
+    background-color: #034184;
+    color: #fff;
+  }
+}
+
+.no-padding {
+  &--left {
+    margin-left: -24px;
+  }
+  &--bottom {
+    margin-bottom: 0px;
+  }
+}
+
+.status-button {
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-family: gotham-medium;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem;
+  background-color: $white;
+  text-align: center;
+  padding: 16px 20px;
+}
+
+.up-in-toggle {
+  padding: 5%;
+  input {
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+    display: none;
+    &:checked + label {
+      background: #fc6d2a;
+      color: white;
+    }
+  }
+  label {
+    display: inline-block;
+    background-color: $white;
+    text-align: center;
+    padding: 16px 20px;
+    float: left;
+    transition: all 0.1s ease-in-out;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-family: gotham-medium;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.show-more {
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto 4rem;
+  position: relative;
+}

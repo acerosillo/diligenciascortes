@@ -1,0 +1,44 @@
+{
+  "name": "Epiris",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html --no-babel",
+    "lint": "eslint . --fix",
+    "dev": "parcel src/*.html",
+    "static": "parcel build src/*.html --no-content-hash --dist-dir dist",
+    "js": "parcel build src/js/main.js --no-source-maps --dist-dir ../Epiris2024.Web/wwwroot/static",
+    "css": "parcel build src/scss/main.scss --no-source-maps --dist-dir ../Epiris2024.Web/wwwroot/static",
+    "build": "npm run js && npm run css"
+  },
+  "keywords": [],
+  "author": "Ace Rosillo",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "@parcel/transformer-webmanifest": "^2.11.0",
+    "eslint": "^8.51.0",
+    "parcel": "^2.11.0",
+    "parcel-namer-rewrite": "^2.10.3-rc.2"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.31",
+    "bootstrap": "^5.3.2",
+    "flickity": "^2.3.0",
+    "gsap": "^3.12.2",
+    "locomotive-scroll": "^5.0.0-beta.11",
+    "swiper": "^11.0.3"
+  },
+  "parcel-namer-rewrite": {
+    "hashing": "never",
+    "rules": {
+      "(.*)\\.(css)": "css/$1.$2",
+      "(.*)\\.(js)": "js/$1.$2",
+      "(.*)\\.(woff2|woff|eot|ttf)": "font/$1.$2",
+      "(.*)\\.(svg|png|gif|jpg|webp)": "img/$1.$2",
+      "(.*)\\.(mp4)": "video/$1.$2",
+      "(.*)\\.(mp3)": "audio/$1.$2",
+      "(.*)\\.(pdf|docx|zip)": "downloads/$1.$2"
+    },
+    "silent": true
+  }
+}

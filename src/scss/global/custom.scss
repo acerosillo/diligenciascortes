@@ -1,0 +1,9 @@
+//@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// transitions
+$enable-transitions: true !default;
+$enable-reduced-motion: true !default;
+@import "../../../node_modules/bootstrap/scss/mixins/transition";
+
+// grid
+@import "../../../node_modules/bootstrap/scss/bootstrap-grid";
